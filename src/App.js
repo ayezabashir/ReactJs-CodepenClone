@@ -1,10 +1,26 @@
 import Codeeditor from "./components/Codeeditor";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
   let [html, seHtml] = useState('');
   let [css, setCss] = useState('');
   let [javascript, setJavascript] = useState('');
+  let [srcDoc, setSrcDoc] = useState('');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSrcDoc(`
+          <html>
+            <body>${html}</body>
+            <style>${css}</style>
+            <script>${javascript}</script>
+          </html>
+        `)
+    }, 300)
+    return () => clearTimeout(timeout);
+  }, [html, css, javascript])
+
 
   return (
     <>
@@ -38,6 +54,7 @@ function App() {
       </div>
       <div className="section">
         <iframe
+          srcDoc={srcDoc}
           title="output"
           sandbox="allow-scripts"
           frameBorder="0"
