@@ -6,19 +6,23 @@ import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/xml/xml'
 
 import { Controlled } from 'react-codemirror2'
-const Codeeditor = ({ title, language, value, onChange }) => {
+
+let Codeeditor = ({ icon, title, language, value, onChange }) => {
     let handleChange = (editor, data, value) => {
         onChange(value);
     }
     return (
         <div className='container'>
             <div className="title">
-                {title}
+                <div className='title-icon'>
+                    {icon} {title}
+                </div>
                 <button>O/C</button>
             </div>
             <Controlled
                 onBeforeChange={handleChange}
                 value={value}
+                className='codemirror'
                 options={{
                     lineWrapping: true,
                     mode: language,
