@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
 import 'codemirror/mode/css/css'
@@ -11,13 +12,14 @@ let Codeeditor = ({ icon, title, language, value, onChange }) => {
     let handleChange = (editor, data, value) => {
         onChange(value);
     }
+    let [open, setOpen] = useState(true);
     return (
-        <div className='container'>
+        <div className={`container ${open ? '' : 'collapsed'}`}>
             <div className="title">
                 <div className='title-icon'>
                     {icon} {title}
                 </div>
-                <button>O/C</button>
+                <button onClick={() => setOpen(open = !open)}>-</button>
             </div>
             <Controlled
                 onBeforeChange={handleChange}

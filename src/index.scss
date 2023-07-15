@@ -35,6 +35,16 @@ body {
       display: flex;
       align-items: center;
     }
+    button {
+      background: black;
+      border-radius: 5px;
+      border: 0;
+      color: white;
+      font-size: larger;
+      padding: 0px 8px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
   }
   .file-type-icon {
     width: 20px;
@@ -49,4 +59,10 @@ body {
     border-bottom-left-radius: 10px;
     // overflow: hidden;
   }
+}
+.container.collapsed {
+  flex-grow: 0;
+}
+.container.collapsed .CodeMirror-scroll {
+  position: absolute;
 }
