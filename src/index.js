@@ -5,5 +5,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // had to remove <React.StrictMode> because it was rendering
+  // codeeditor component twice
   <App />
 );

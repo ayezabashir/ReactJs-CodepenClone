@@ -1,11 +1,12 @@
 import Codeeditor from "./components/Codeeditor";
 import { useState } from "react";
 import { useEffect } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
-  let [html, seHtml] = useState('');
-  let [css, setCss] = useState('');
-  let [javascript, setJavascript] = useState('');
+  let [html, seHtml] = useLocalStorage('html', '');
+  let [css, setCss] = useLocalStorage('css', '');
+  let [javascript, setJavascript] = useLocalStorage('javascript', '');
   let [srcDoc, setSrcDoc] = useState('');
 
   useEffect(() => {
